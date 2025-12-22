@@ -24,6 +24,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroid" }
 koin-test = { module = "io.insert-koin:koin-test-junit4", version.ref = "koinAndroid" }
 
 androidx-compose = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
