@@ -1,8 +1,14 @@
 package com.bonial.challenge.di
 
+import com.bonial.challenge.brochures.data.di.brochuresRepositoryModule
+import com.bonial.challenge.brochures.data.remote.di.brochuresRemoteDataSourceModule
 import com.bonial.challenge.brochures.di.brochuresModule
 import org.koin.dsl.module
 
 val appModule = module {
-    includes(brochuresModule)
+    includes(
+        brochuresModule,
+        brochuresRemoteDataSourceModule,
+        brochuresRepositoryModule,
+    )
 }

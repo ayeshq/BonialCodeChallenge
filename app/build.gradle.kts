@@ -81,4 +81,9 @@ dependencies {
 
     //Retrofit2
     implementation(platform(libs.retrofit2))
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit2.converter.gson)
+
+    //Gson
+    implementation(libs.gson)
 }
