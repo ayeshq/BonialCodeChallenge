@@ -2,7 +2,7 @@ package com.bonial.challenge.brochures.data.model
 
 import com.google.gson.annotations.SerializedName
 
-enum class AdvertisementContentType{
+enum class AdvertisementContentType {
     @SerializedName("brochure")
     Brochure,
 
