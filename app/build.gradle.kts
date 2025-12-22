@@ -1,6 +1,16 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_11
+    }
 }
 
 android {
@@ -32,9 +42,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
 }
 
 dependencies {
@@ -44,4 +51,33 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Koin
+    implementation(libs.koin.android)
+    testImplementation(libs.koin.test)
+
+    //Compose
+    implementation(platform(libs.androidx.compose))
+    androidTestImplementation(platform(libs.androidx.compose))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Compose Material Design 3
+    implementation(libs.androidx.compose.material3)
+
+    // Android Studio Preview support
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+
+    // Compose UI Tests
+    androidTestImplementation(libs.androidx.compose.ui.junit4)
+    debugImplementation(libs.androidx.compose.ui.test.manifist)
+
+    // Compose Window size utils
+    implementation(libs.androidx.compose.material3.adaptive.ui)
+
+    implementation(libs.kotlinx.serialization.core)
+
+    //Retrofit2
+    implementation(platform(libs.retrofit2))
 }
