@@ -2,21 +2,20 @@ package com.bonial.challenge.brochures.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bonial.challenge.brochures.data.BrochuresRepository
+import com.bonial.challenge.brochures.usecases.FetchBrochuresUseCase
 import kotlinx.coroutines.launch
 
 class BrochuresViewModel(
-    val brochuresRepository: BrochuresRepository,
+    val fetchBrochures: FetchBrochuresUseCase,
 ) : ViewModel() {
 
     init {
-        fetchBrochures()
+        loadBrochures()
     }
 
-    private fun fetchBrochures() {
+    private fun loadBrochures() {
         viewModelScope.launch {
-            brochuresRepository
-                .fetchBrochures()
+            fetchBrochures()
                 .fold(
                     onSuccess = {
                         println(it)

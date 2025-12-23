@@ -2,7 +2,7 @@ package com.bonial.challenge.brochures.data.remote
 
 import com.bonial.challenge.brochures.data.model.Advertisement
 
-class BrochuresRemoteDataSourceImpl(
+internal class BrochuresRemoteDataSourceImpl(
     private val api: BrochuresApi
 ) : BrochuresRemoteDataSource {
 

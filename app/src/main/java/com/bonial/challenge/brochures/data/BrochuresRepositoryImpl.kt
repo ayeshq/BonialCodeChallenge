@@ -3,7 +3,7 @@ package com.bonial.challenge.brochures.data
 import com.bonial.challenge.brochures.data.model.Advertisement
 import com.bonial.challenge.brochures.data.remote.BrochuresRemoteDataSource
 
-class BrochuresRepositoryImpl(
+internal class BrochuresRepositoryImpl(
     private val brochuresRemoteDataSource: BrochuresRemoteDataSource
 ) : BrochuresRepository {
 
