@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface BrochuresApi {
 
-    @GET("shelf.json/")
+    @GET("shelf.json")
     suspend fun fetchBrochures(): FetchBrochuresApiResponse
 }

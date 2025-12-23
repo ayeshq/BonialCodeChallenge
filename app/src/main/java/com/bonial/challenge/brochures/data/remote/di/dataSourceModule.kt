@@ -1,8 +1,11 @@
 package com.bonial.challenge.brochures.data.remote.di
 
+import com.bonial.challenge.brochures.data.model.Advertisement
+import com.bonial.challenge.brochures.data.remote.AdvertisementDeserializer
 import com.bonial.challenge.brochures.data.remote.BrochuresApi
 import com.bonial.challenge.brochures.data.remote.BrochuresRemoteDataSource
 import com.bonial.challenge.brochures.data.remote.BrochuresRemoteDataSourceImpl
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -23,11 +26,15 @@ val brochuresRemoteDataSourceModule = module {
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
 
+        val gson = GsonBuilder()
+            .registerTypeAdapter(Advertisement::class.java, AdvertisementDeserializer())
+            .create()
+
         Retrofit
             .Builder()
             .baseUrl(baseUrl)
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(BrochuresApi::class.java)
     }
