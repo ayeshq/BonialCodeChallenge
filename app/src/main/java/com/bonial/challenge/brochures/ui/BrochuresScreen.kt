@@ -65,13 +65,17 @@ private fun BrochuresScreenContent(
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             TopAppBar(
-                title = { stringResource(R.string.app_name) },
+                title = {
+                    Text(stringResource(R.string.app_name))
+                },
             )
-        }
+        },
     ) { internalPadding: PaddingValues ->
         Box(
             contentAlignment = Alignment.Center,
-            modifier = Modifier.padding(internalPadding).fillMaxSize()
+            modifier = Modifier
+                .padding(internalPadding)
+                .fillMaxSize()
         ) {
             BrochuresGrid(
                 brochures = uiState.brochures,
