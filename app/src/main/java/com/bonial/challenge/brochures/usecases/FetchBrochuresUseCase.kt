@@ -1,8 +1,8 @@
 package com.bonial.challenge.brochures.usecases
 
-import com.bonial.challenge.brochures.data.model.Advertisement
+import com.bonial.challenge.brochures.data.model.BrochureContent
 
 interface FetchBrochuresUseCase {
 
-    suspend operator fun invoke(): Result<List<Advertisement>>
+    suspend operator fun invoke(): Result<List<BrochureContent>>
 }

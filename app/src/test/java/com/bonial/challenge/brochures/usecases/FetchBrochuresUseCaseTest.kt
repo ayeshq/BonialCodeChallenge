@@ -43,7 +43,7 @@ class FetchBrochuresUseCaseTest {
         assertTrue(result.isSuccess)
         val ads = result.getOrNull()
         assertNotNull(ads)
-        assertEquals(0, ads?.count { it.contentType == AdvertisementContentType.SuperBannerCarousel })
+        assertEquals(0, ads?.count { it is SuperBannerCarouselContent })
     }
 
     @Test
