@@ -5,7 +5,7 @@ import com.bonial.challenge.brochures.usecases.FetchBrochuresUseCaseImpl
 import org.koin.dsl.module
 
 val fetchBrochuresModule = module {
-    single<FetchBrochuresUseCase> {
+    factory<FetchBrochuresUseCase> {
         FetchBrochuresUseCaseImpl(get())
     }
 }

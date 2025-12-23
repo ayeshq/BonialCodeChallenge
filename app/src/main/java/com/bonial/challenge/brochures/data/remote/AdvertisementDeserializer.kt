@@ -13,7 +13,7 @@ import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
-class AdvertisementDeserializer : JsonDeserializer<Advertisement> {
+internal class AdvertisementDeserializer : JsonDeserializer<Advertisement> {
 
     override fun deserialize(
         json: JsonElement,

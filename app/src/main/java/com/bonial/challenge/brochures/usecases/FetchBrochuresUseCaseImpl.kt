@@ -15,12 +15,13 @@ internal class FetchBrochuresUseCaseImpl(
                 onSuccess = { ads ->
                     Result.success(
                         value = ads.filter {
-                            it.contentType == AdvertisementContentType.Brochure || it.contentType == AdvertisementContentType.BrochurePremium
+                            it.contentType == AdvertisementContentType.Brochure
+                                    || it.contentType == AdvertisementContentType.BrochurePremium
                         }
                     )
                 },
                 onFailure = {
-                    Result.failure(it as Exception)
+                    Result.failure(it)
                 },
             )
     }

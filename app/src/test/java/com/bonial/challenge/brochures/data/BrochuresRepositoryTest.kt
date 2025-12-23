@@ -29,7 +29,7 @@ class BrochuresRepositoryTest {
     }
 
     @Test
-    fun `fetchBrochures onSuccess returns success result with advertisement list`() = runTest {
+    fun `fetchBrochures onSuccess returns result with advertisement list`() = runTest {
         val expectedAdds = listOf<Advertisement>(mockk(), mockk())
         val apiResponse = FetchBrochuresApiResponse(AddsWrapper(expectedAdds))
         coEvery { api.fetchBrochures() } returns apiResponse
