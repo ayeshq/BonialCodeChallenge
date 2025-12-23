@@ -8,10 +8,9 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.koin.test.KoinTest
 import kotlin.test.assertFailsWith
 
-class BrochuresRemoteDataSourceTest : KoinTest {
+class BrochuresRemoteDataSourceTest {
 
     private val api = mockk<BrochuresApi>()
     private val dataSource = BrochuresRemoteDataSourceImpl(api)
