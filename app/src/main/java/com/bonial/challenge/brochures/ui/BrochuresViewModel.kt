@@ -3,9 +3,12 @@ package com.bonial.challenge.brochures.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bonial.challenge.brochures.usecases.FetchBrochuresUseCase
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -15,6 +18,9 @@ class BrochuresViewModel(
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
+
+    private val _uiEvents = Channel<BrochuresScreenEvents?>(Channel.UNLIMITED)
+    val uiEvents: Flow<BrochuresScreenEvents?> = _uiEvents.receiveAsFlow()
 
     init {
         loadBrochures()
@@ -32,8 +38,12 @@ class BrochuresViewModel(
                         }
                         showHideLoadingIndicator(false)
                     },
-                    onFailure = {
-                        println(it)
+                    onFailure = { error ->
+                        _uiEvents.send (
+                            BrochuresScreenEvents.ShowSnackBar("Error fetching brochures:\n${error.message}")
+                        )
+
+                        showHideLoadingIndicator(false)
                     },
                 )
         }
