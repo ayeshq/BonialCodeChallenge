@@ -36,12 +36,13 @@ class BrochuresViewModel(
                         _uiState.update {
                             it.copy(brochures = brochures)
                         }
+
                         showHideLoadingIndicator(false)
                     },
                     onFailure = { error ->
-                        _uiEvents.send (
-                            BrochuresScreenEvent.ShowSnackBar("Error fetching brochures:\n${error.message}")
-                        )
+                        _uiEvents.send(BrochuresScreenEvent.ShowSnackBar(
+                            message = "Error fetching brochures:\n${error.message}"
+                        ))
 
                         showHideLoadingIndicator(false)
                     },

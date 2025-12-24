@@ -25,25 +25,28 @@ class FetchBrochuresUseCaseTest {
     fun setUp() {
         repository = mockk()
         fetchBrochures = FetchBrochuresUseCaseImpl(repository)
-        val brochureContent: BrochureContent = mockk()
+        val firstBrochure: BrochureContent = mockk(relaxed = true)
+        val secondBrochure: BrochureContent = mockk(relaxed = true)
         val superBannerCarouselContent: SuperBannerCarouselContent = mockk()
         allAds = listOf(
-            Advertisement(AdvertisementContentType.Brochure, brochureContent),
-            Advertisement(AdvertisementContentType.BrochurePremium, brochureContent),
+            Advertisement(AdvertisementContentType.Brochure, firstBrochure),
+            Advertisement(AdvertisementContentType.BrochurePremium, secondBrochure),
             Advertisement(AdvertisementContentType.SuperBannerCarousel, superBannerCarouselContent),
         )
     }
 
     @Test
-    fun `invoke onSuccess returns adsList and filters out SuperBannerCarousel`() = runTest {
+    fun `invoke onSuccess filters out super banner ads and maps to brochures`() = runTest {
         coEvery { repository.fetchBrochures() } returns Result.success(allAds)
+        val allAdsCount = allAds.size
+        val superBannerAdsCount = allAds.count { it.contentType == AdvertisementContentType.SuperBannerCarousel }
 
         val result = fetchBrochures()
 
         assertTrue(result.isSuccess)
-        val ads = result.getOrNull()
-        assertNotNull(ads)
-        assertEquals(0, ads?.count { it is SuperBannerCarouselContent })
+        val brochures = result.getOrNull()
+        assertNotNull(brochures)
+        assertTrue(brochures?.size == allAdsCount - superBannerAdsCount)
     }
 
     @Test

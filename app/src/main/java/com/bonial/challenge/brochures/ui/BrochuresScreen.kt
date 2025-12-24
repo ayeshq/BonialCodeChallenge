@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bonial.challenge.R
-import com.bonial.challenge.brochures.data.model.BrochureContent
+import com.bonial.challenge.brochures.model.Brochure
 import com.bonial.challenge.ui.theme.AppTheme
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
@@ -95,7 +95,7 @@ private fun BrochuresScreenContent(
 
 @Composable
 private fun BrochuresGrid(
-    brochures: List<BrochureContent>,
+    brochures: List<Brochure>,
     modifier: Modifier = Modifier,
 ) {
     LazyVerticalGrid(

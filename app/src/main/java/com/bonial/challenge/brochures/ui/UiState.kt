@@ -1,10 +1,10 @@
 package com.bonial.challenge.brochures.ui
 
-import com.bonial.challenge.brochures.data.model.BrochureContent
+import com.bonial.challenge.brochures.model.Brochure
 
 data class UiState(
     val loadingState: LoadingState = LoadingState(),
-    val brochures: List<BrochureContent> = listOf(),
+    val brochures: List<Brochure> = listOf(),
 )
 
 data class LoadingState(
