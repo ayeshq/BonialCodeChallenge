@@ -1,10 +1,12 @@
 package com.bonial.challenge.brochures.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -12,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -23,11 +26,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.integerResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil3.compose.AsyncImage
 import com.bonial.challenge.R
 import com.bonial.challenge.brochures.model.Brochure
 import com.bonial.challenge.ui.theme.AppTheme
@@ -98,11 +104,15 @@ private fun BrochuresGrid(
     brochures: List<Brochure>,
     modifier: Modifier = Modifier,
 ) {
+    val gridColumns = GridCells.Fixed(integerResource(R.integer.grid_columns_count))
+    val errorPainter = painterResource(R.drawable.outline_broken_image_24)
+
     LazyVerticalGrid(
-        modifier = modifier,
-        columns = GridCells.Fixed(integerResource(R.integer.grid_columns_count)),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = modifier
+            .padding(start = 8.dp, end = 8.dp),
+        columns = gridColumns,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(
             count = brochures.size,
@@ -110,15 +120,35 @@ private fun BrochuresGrid(
         ) { index: Int ->
             Card(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight(),
+                    .height(300.dp),
             ) {
-                Text(
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .align(Alignment.CenterHorizontally),
-                    text = "Brochure Number: $index",
-                )
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                ) {
+                    AsyncImage(
+                        modifier = Modifier.fillMaxSize(),
+                        model = brochures[index].brochureImageUrl,
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        clipToBounds = true,
+                        error = errorPainter,
+                    )
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                            .background(MaterialTheme.colorScheme.surfaceContainer)
+                            .align(Alignment.BottomStart),
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .padding(8.dp)
+                                .align(Alignment.BottomStart),
+                            text = brochures[index].publisher.name,
+                        )
+                    }
+                }
             }
         }
     }

@@ -93,4 +93,8 @@ dependencies {
 
     //Turbine
     testImplementation(libs.turbine)
+
+    //Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil3.coil.network.okhttp)
 }
