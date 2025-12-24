@@ -17,9 +17,9 @@ kotlinxSerializationCore = "1.9.0"
 gson = "2.13.2"
 okHttpLogging = "4.7.2"
 gsonConverter = "2.9.0"
-junitJunit = "4.12"
 mockk = "1.13.11"
 coroutineTest = "1.7.3"
+turbine = "1.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,9 +49,9 @@ retrofit2-converter-gson = { group = "com.squareup.retrofit2", name = "converter
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
-junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutineTest" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

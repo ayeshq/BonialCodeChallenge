@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class BrochuresViewModel(
-    val fetchBrochures: FetchBrochuresUseCase,
+internal class BrochuresViewModel(
+    private val fetchBrochures: FetchBrochuresUseCase,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())

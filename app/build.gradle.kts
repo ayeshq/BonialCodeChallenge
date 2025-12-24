@@ -49,7 +49,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
-    testImplementation(libs.junit.junit)
     testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -91,4 +90,7 @@ dependencies {
 
     //Mockk
     testImplementation(libs.mockk)
+
+    //Turbine
+    testImplementation(libs.turbine)
 }
