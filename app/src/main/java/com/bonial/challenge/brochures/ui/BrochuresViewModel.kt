@@ -19,8 +19,8 @@ class BrochuresViewModel(
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
-    private val _uiEvents = Channel<BrochuresScreenEvents?>(Channel.UNLIMITED)
-    val uiEvents: Flow<BrochuresScreenEvents?> = _uiEvents.receiveAsFlow()
+    private val _uiEvents = Channel<BrochuresScreenEvent?>(Channel.UNLIMITED)
+    val uiEvents: Flow<BrochuresScreenEvent?> = _uiEvents.receiveAsFlow()
 
     init {
         loadBrochures()
@@ -40,7 +40,7 @@ class BrochuresViewModel(
                     },
                     onFailure = { error ->
                         _uiEvents.send (
-                            BrochuresScreenEvents.ShowSnackBar("Error fetching brochures:\n${error.message}")
+                            BrochuresScreenEvent.ShowSnackBar("Error fetching brochures:\n${error.message}")
                         )
 
                         showHideLoadingIndicator(false)

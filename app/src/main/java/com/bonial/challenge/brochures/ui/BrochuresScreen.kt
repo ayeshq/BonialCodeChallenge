@@ -13,7 +13,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -48,6 +47,7 @@ internal fun BrochuresScreen(
     BrochuresScreenContent(
         uiState = uiState,
         uiEvents = uiEvents,
+        modifier = modifier,
     )
 }
 
@@ -56,7 +56,7 @@ internal fun BrochuresScreen(
 private fun BrochuresScreenContent(
     modifier: Modifier = Modifier,
     uiState: UiState = UiState(),
-    uiEvents: Flow<BrochuresScreenEvents?> = flowOf(null),
+    uiEvents: Flow<BrochuresScreenEvent?> = flowOf(null),
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -126,16 +126,16 @@ private fun BrochuresGrid(
 
 @Composable
 private fun HandleUiEvents(
-    uiEvents: Flow<BrochuresScreenEvents?>,
+    uiEvents: Flow<BrochuresScreenEvent?>,
     snackbarHostState: SnackbarHostState,
 ) {
     LaunchedEffect(Unit) {
         uiEvents.collectLatest { event ->
             when (event) {
-                is BrochuresScreenEvents.ShowSnackBar -> {
+                is BrochuresScreenEvent.ShowSnackBar -> {
                     snackbarHostState.showSnackbar(
                         message = event.message,
-                        duration = SnackbarDuration.Short
+                        duration = event.duration
                     )
                 }
 
