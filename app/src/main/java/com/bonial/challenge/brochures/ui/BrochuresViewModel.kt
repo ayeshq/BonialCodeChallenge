@@ -33,8 +33,13 @@ internal class BrochuresViewModel(
             fetchBrochures()
                 .fold(
                     onSuccess = { brochures ->
+                        val filteredBrochures = brochures
+                            .filter {
+                                it.distance <= 5.0
+                            }
+
                         _uiState.update {
-                            it.copy(brochures = brochures)
+                            it.copy(brochures = filteredBrochures)
                         }
 
                         showHideLoadingIndicator(false)

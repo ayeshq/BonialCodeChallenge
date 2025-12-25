@@ -16,6 +16,9 @@ data class BrochureContent(
 
     @SerializedName("publisher")
     val publisher: Publisher,
+
+    @SerializedName("distance")
+    val distance: Double,
 ): AdvertisementContent()
 
 data class SuperBannerCarouselContent(

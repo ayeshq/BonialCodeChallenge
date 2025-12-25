@@ -10,6 +10,7 @@ data class Brochure(
     val brochureImageUrl: String,
     val publisher: String,
     val isPremium: Boolean,
+    val distance: Double,
 )
 
 fun BrochureContent.toBrochure(isPremium: Boolean): Brochure = Brochure (
@@ -18,4 +19,5 @@ fun BrochureContent.toBrochure(isPremium: Boolean): Brochure = Brochure (
     brochureImageUrl = brochureImageUrl,
     publisher = publisher.name,
     isPremium = isPremium,
+    distance = distance,
 )

@@ -170,6 +170,7 @@ private val brochures = listOf(
         brochureImageUrl = "",
         publisher = "REWE",
         isPremium = false,
+        distance = 5.0,
     ),
     Brochure(
         id = 2,
@@ -177,6 +178,7 @@ private val brochures = listOf(
         brochureImageUrl = "",
         publisher = "EDEKA",
         isPremium = false,
+        distance = 5.0,
     ),
     Brochure(
         id = 3,
@@ -184,6 +186,7 @@ private val brochures = listOf(
         brochureImageUrl = "",
         publisher = "KAUF",
         isPremium = true,
+        distance = 5.0,
     )
 )
 

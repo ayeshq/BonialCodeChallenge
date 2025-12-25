@@ -93,6 +93,7 @@ private fun BrochureCardPreview() {
                 brochureImageUrl = "",
                 publisher = "REWE",
                 isPremium = false,
+                distance = 4.0,
             ),
         )
     }
