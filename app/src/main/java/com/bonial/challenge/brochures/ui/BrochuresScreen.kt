@@ -31,7 +31,6 @@ import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bonial.challenge.R
-import com.bonial.challenge.brochures.data.model.Publisher
 import com.bonial.challenge.brochures.model.Brochure
 import com.bonial.challenge.ui.theme.AppTheme
 import kotlinx.coroutines.flow.Flow
@@ -113,12 +112,14 @@ private fun BrochuresGrid(
     errorPainter: Painter,
     modifier: Modifier = Modifier,
 ) {
+    val gridItemSpacingDp =  8.dp
+
     LazyVerticalGrid(
         modifier = modifier
-            .padding(start = 8.dp, end = 8.dp),
+            .padding(start = gridItemSpacingDp, end = gridItemSpacingDp),
         columns = gridColumns,
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(gridItemSpacingDp),
+        horizontalArrangement = Arrangement.spacedBy(gridItemSpacingDp),
     ) {
         items(
             count = brochures.size,
@@ -167,21 +168,21 @@ private val brochures = listOf(
         id = 1,
         title = "Groceries",
         brochureImageUrl = "",
-        publisher = Publisher(name = "REWE", id = "1"),
+        publisher = "REWE",
         isPremium = false,
     ),
     Brochure(
         id = 2,
         title = "Supplies",
         brochureImageUrl = "",
-        publisher = Publisher(name = "EDEKA", id = "2"),
+        publisher = "EDEKA",
         isPremium = false,
     ),
     Brochure(
         id = 3,
         title = "Supermarket",
         brochureImageUrl = "",
-        publisher = Publisher(name = "KAUF", id = "3"),
+        publisher = "KAUF",
         isPremium = true,
     )
 )

@@ -72,7 +72,7 @@ internal fun BrochureCard(
                     modifier = Modifier
                         .padding(8.dp)
                         .align(Alignment.BottomStart),
-                    text = brochure.publisher.name,
+                    text = brochure.publisher,
                 )
             }
         }
@@ -91,7 +91,7 @@ private fun BrochureCardPreview() {
                 id = 1,
                 title = "Groceries",
                 brochureImageUrl = "",
-                publisher = Publisher(name = "REWE", id = "1"),
+                publisher = "REWE",
                 isPremium = false,
             ),
         )
