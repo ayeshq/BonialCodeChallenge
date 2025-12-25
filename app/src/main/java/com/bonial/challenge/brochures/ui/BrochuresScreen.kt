@@ -27,6 +27,7 @@ import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bonial.challenge.R
@@ -161,20 +162,52 @@ private fun HandleUiEvents(
     }
 }
 
+private val brochures = listOf(
+    Brochure(
+        id = 1,
+        title = "Groceries",
+        brochureImageUrl = "",
+        publisher = Publisher(name = "REWE", id = "1"),
+        isPremium = false,
+    ),
+    Brochure(
+        id = 2,
+        title = "Supplies",
+        brochureImageUrl = "",
+        publisher = Publisher(name = "EDEKA", id = "2"),
+        isPremium = false,
+    ),
+    Brochure(
+        id = 3,
+        title = "Supermarket",
+        brochureImageUrl = "",
+        publisher = Publisher(name = "KAUF", id = "3"),
+        isPremium = true,
+    )
+)
+
 @Preview
 @Composable
 fun BrochuresScreenPreview() {
     AppTheme {
-        BrochuresScreenContent()
+        BrochuresScreenContent(
+            uiState = UiState().copy(
+                brochures = brochures,
+            ),
+        )
     }
 }
 
-@Preview
+@PreviewScreenSizes
 @Composable
 fun BrochuresScreenPreviewDark() {
     AppTheme(
         darkTheme = true,
     ) {
-        BrochuresScreenContent()
+        BrochuresScreenContent(
+            uiState = UiState().copy(
+                brochures = brochures,
+            ),
+        )
     }
 }
