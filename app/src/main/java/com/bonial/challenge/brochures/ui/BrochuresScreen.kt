@@ -1,20 +1,16 @@
 package com.bonial.challenge.brochures.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -26,14 +22,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil3.compose.AsyncImage
 import com.bonial.challenge.R
 import com.bonial.challenge.brochures.model.Brochure
 import com.bonial.challenge.ui.theme.AppTheme
@@ -104,7 +98,8 @@ private fun BrochuresGrid(
     brochures: List<Brochure>,
     modifier: Modifier = Modifier,
 ) {
-    val gridColumns = GridCells.Fixed(integerResource(R.integer.grid_columns_count))
+    val columnsCount = integerResource(R.integer.grid_columns_count)
+    val gridColumns = GridCells.Fixed(columnsCount)
     val errorPainter = painterResource(R.drawable.outline_broken_image_24)
 
     LazyVerticalGrid(
@@ -117,39 +112,20 @@ private fun BrochuresGrid(
         items(
             count = brochures.size,
             key = { index -> brochures[index].id },
-        ) { index: Int ->
-            Card(
-                modifier = Modifier
-                    .height(300.dp),
-            ) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                ) {
-                    AsyncImage(
-                        modifier = Modifier.fillMaxSize(),
-                        model = brochures[index].brochureImageUrl,
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        clipToBounds = true,
-                        error = errorPainter,
-                    )
-
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .wrapContentHeight()
-                            .background(MaterialTheme.colorScheme.surfaceContainer)
-                            .align(Alignment.BottomStart),
-                    ) {
-                        Text(
-                            modifier = Modifier
-                                .padding(8.dp)
-                                .align(Alignment.BottomStart),
-                            text = brochures[index].publisher.name,
-                        )
-                    }
+            span = { index ->
+                if (brochures[index].isPremium) {
+                    GridItemSpan(columnsCount)
+                } else {
+                    GridItemSpan(1)
                 }
             }
+        ) { index: Int ->
+            BrochureCard(
+                brochure = brochures[index],
+                errorPainter = errorPainter,
+                modifier = Modifier
+                    .height(300.dp),
+            )
         }
     }
 }
