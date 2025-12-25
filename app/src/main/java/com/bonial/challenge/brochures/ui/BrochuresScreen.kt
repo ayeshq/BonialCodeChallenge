@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -29,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bonial.challenge.R
+import com.bonial.challenge.brochures.data.model.Publisher
 import com.bonial.challenge.brochures.model.Brochure
 import com.bonial.challenge.ui.theme.AppTheme
 import kotlinx.coroutines.flow.Flow
@@ -59,6 +61,10 @@ private fun BrochuresScreenContent(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
+    val columnsCount = integerResource(R.integer.grid_columns_count)
+    val gridColumns = remember(columnsCount) { GridCells.Fixed(columnsCount) }
+    val errorPainter = painterResource(R.drawable.outline_broken_image_24)
+
     Scaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
@@ -78,6 +84,11 @@ private fun BrochuresScreenContent(
         ) {
             BrochuresGrid(
                 brochures = uiState.brochures,
+                gridColumns = gridColumns,
+                fullGridSpan = GridItemSpan(columnsCount),
+                singleColumnSpan = GridItemSpan(1),
+                errorPainter = errorPainter,
+                modifier = Modifier.align(Alignment.TopCenter),
             )
 
             if (uiState.loadingState.isLoading) {
@@ -95,14 +106,12 @@ private fun BrochuresScreenContent(
 @Composable
 private fun BrochuresGrid(
     brochures: List<Brochure>,
+    gridColumns: GridCells,
+    fullGridSpan: GridItemSpan,
+    singleColumnSpan: GridItemSpan,
+    errorPainter: Painter,
     modifier: Modifier = Modifier,
 ) {
-    val columnsCount = integerResource(R.integer.grid_columns_count)
-    val gridColumns = GridCells.Fixed(columnsCount)
-    val errorPainter = painterResource(R.drawable.outline_broken_image_24)
-    val fullGridSpan = GridItemSpan(columnsCount)
-    val singleColumnSpan = GridItemSpan(1)
-
     LazyVerticalGrid(
         modifier = modifier
             .padding(start = 8.dp, end = 8.dp),
