@@ -32,7 +32,6 @@ import com.bonial.challenge.R
 import com.bonial.challenge.brochures.model.Brochure
 import com.bonial.challenge.ui.theme.AppTheme
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flowOf
 import org.koin.androidx.compose.koinViewModel
 
@@ -101,6 +100,8 @@ private fun BrochuresGrid(
     val columnsCount = integerResource(R.integer.grid_columns_count)
     val gridColumns = GridCells.Fixed(columnsCount)
     val errorPainter = painterResource(R.drawable.outline_broken_image_24)
+    val fullGridSpan = GridItemSpan(columnsCount)
+    val singleColumnSpan = GridItemSpan(1)
 
     LazyVerticalGrid(
         modifier = modifier
@@ -114,9 +115,9 @@ private fun BrochuresGrid(
             key = { index -> brochures[index].id },
             span = { index ->
                 if (brochures[index].isPremium) {
-                    GridItemSpan(columnsCount)
+                    fullGridSpan
                 } else {
-                    GridItemSpan(1)
+                    singleColumnSpan
                 }
             }
         ) { index: Int ->
@@ -136,7 +137,7 @@ private fun HandleUiEvents(
     snackbarHostState: SnackbarHostState,
 ) {
     LaunchedEffect(Unit) {
-        uiEvents.collectLatest { event ->
+        uiEvents.collect { event ->
             when (event) {
                 is BrochuresScreenEvent.ShowSnackBar -> {
                     snackbarHostState.showSnackbar(
