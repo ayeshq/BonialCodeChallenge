@@ -1,0 +1,268 @@
+[
+  {
+    "placement": "ad_placement__shelf_sort_managed",
+    "adFormat": null,
+    "contentFormatSource": "destinationsApi",
+    "contentType": "superBannerCarousel",
+    "content": [
+      {
+        "content": {
+          "id": "6fa4bbcc-9ef4-4635-b219-22ff5fee7370",
+          "publisher": {
+            "id": "DE-92"
+          },
+          "publishedFrom": "2025-01-03T23:00:00.000+0000",
+          "publishedUntil": "2025-01-18T22:59:59.000+0000",
+          "clickUrl": "kaufda://slot/9fb799fb-a5ec-43ce-8d7b-9441a35fead7?pageType=superbanner",
+          "imageUrl": "https://content-media.bonial.biz/6fa4bbcc-9ef4-4635-b219-22ff5fee7370/c3e2d69f-c004-495c-9b28-544245cb5383.jpg"
+        },
+        "externalTracking": {
+          "impression": [],
+          "click": []
+        }
+      },
+      {
+        "content": {
+          "id": "6c814875-0e8b-4e92-a277-2e3f1eb1c045",
+          "publisher": {
+            "id": "DE-1024"
+          },
+          "publishedFrom": "2025-01-09T08:00:00.000+0000",
+          "publishedUntil": "2025-01-27T07:59:59.000+0000",
+          "clickUrl": "kaufda://slot/0d138fc0-6488-4e01-8735-a1d24828fdfb?pageType=superbanner",
+          "imageUrl": "https://content-media.bonial.biz/6c814875-0e8b-4e92-a277-2e3f1eb1c045/de04f14c-baa1-4f31-9947-53a8f0ffd554.jpg"
+        },
+        "externalTracking": {
+          "impression": [
+            "https://ad.doubleclick.net/ddm/trackimp/N195005.3097312BONIAL/B32950084.412578869;dc_trk_aid=604782435;dc_trk_cid=228540653;ord=$%7Btimestamp%7D;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=$%7BGDPR%7D;gdpr_consent=$%7BGDPR_CONSENT_755%7D;ltd=;dc_tdv=1?"
+          ],
+          "click": [
+            "https://ad.doubleclick.net/ddm/trackclk/N195005.3097312BONIAL/B32950084.412578869;dc_trk_aid=604782435;dc_trk_cid=228540653;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=;dc_tdv=1"
+          ]
+        }
+      }
+    ],
+    "externalTracking": {
+      "impression": [],
+      "click": []
+    }
+  },
+  {
+    "placement": "ad_placement__shelf_fixed_position_1",
+    "adFormat": "ad_format__brochure_card_cover",
+    "contentFormatSource": "destinationsApi",
+    "contentType": "brochure",
+    "content": {
+      "id": 2500558744,
+      "contentId": "330dfb5c-b903-4fd4-9ae0-b196e0285e82",
+      "title": "LIDL LOHNT SICH",
+      "validFrom": "2025-01-12T23:00:00.000+0000",
+      "validUntil": "2025-01-18T19:00:00.000+0000",
+      "publishedFrom": "2025-01-11T19:00:00.000+0000",
+      "publishedUntil": "2025-01-18T19:00:00.000+0000",
+      "type": "BROCHURE",
+      "brochureImage": "https://content-media.bonial.biz/330dfb5c-b903-4fd4-9ae0-b196e0285e82/preview.jpg",
+      "pageCount": 55,
+      "publisher": {
+        "id": "DE-1013",
+        "name": "Lidl",
+        "type": "RETAILER"
+      },
+      "contentBadges": [
+        {
+          "name": "new"
+        }
+      ],
+      "distance": 0.9313949483394036,
+      "hideValidityDate": false,
+      "closestStore": {
+        "id": "DE-32993",
+        "latitude": 52.52431,
+        "longitude": 13.3795,
+        "street": "Luisenstraße",
+        "streetNumber": "52",
+        "zip": "10117",
+        "city": "Berlin-Mitte"
+      }
+    },
+    "externalTracking": {
+      "impression": [],
+      "click": []
+    }
+  },
+  {
+    "placement": "ad_placement__shelf_fixed_position_2",
+    "adFormat": "ad_format__brochure_card_cover",
+    "contentFormatSource": "destinationsApi",
+    "contentType": "brochure",
+    "content": {
+      "id": 2500562002,
+      "contentId": "a624c6c0-e5f3-49c7-9de4-d43c1a127628",
+      "title": "Dein Markt",
+      "validFrom": "2025-01-12T23:00:00.000+0000",
+      "validUntil": "2025-01-18T22:00:00.000+0000",
+      "publishedFrom": "2025-01-11T23:00:00.000+0000",
+      "publishedUntil": "2025-01-18T23:00:00.000+0000",
+      "type": "BROCHURE",
+      "brochureImage": "https://content-media.bonial.biz/a624c6c0-e5f3-49c7-9de4-d43c1a127628/preview.jpg",
+      "pageCount": 32,
+      "publisher": {
+        "id": "DE-1062",
+        "name": "REWE",
+        "type": "RETAILER"
+      },
+      "contentBadges": [
+        {
+          "name": "new"
+        }
+      ],
+      "distance": 0.6384821052822592,
+      "hideValidityDate": false,
+      "closestStore": {
+        "id": "DE-1058434684",
+        "latitude": 52.5289,
+        "longitude": 13.3849,
+        "street": "Chausseestraße",
+        "streetNumber": "118-120",
+        "zip": "10115",
+        "city": "Berlin / Mitte"
+      }
+    },
+    "externalTracking": {
+      "impression": [],
+      "click": [
+        "https://servedby.flashtalking.com/imp/2/263501;9130473;201;pixel;BonialInternationalDE;CPBonialBaseOffersAdgapId01984610141159891001/?gdpr=${GDPR}&gdpr_consent=${GDPR_CONSENT_78}&cachebuster=${timestamp}"
+      ]
+    }
+  },
+  {
+    "placement": "ad_placement__shelf_sort_managed",
+    "adFormat": "ad_format__brochure_card_cover",
+    "contentFormatSource": "destinationsApi",
+    "contentType": "brochure",
+    "content": {
+      "id": 2500551243,
+      "contentId": "c8367075-df4b-47cb-9109-f1c09ed23903",
+      "title": "Handzettel KW 02",
+      "validFrom": "2025-01-03T23:00:00.000+0000",
+      "validUntil": "2025-02-18T22:59:00.000+0000",
+      "publishedFrom": "2025-01-03T23:00:00.000+0000",
+      "publishedUntil": "2025-01-18T22:59:00.000+0000",
+      "type": "BROCHURE",
+      "brochureImage": "https://content-media.bonial.biz/c8367075-df4b-47cb-9109-f1c09ed23903/preview.jpg",
+      "pageCount": 11,
+      "publisher": {
+        "id": "DE-92",
+        "name": "BAUHAUS",
+        "type": "RETAILER"
+      },
+      "contentBadges": [],
+      "distance": 3.9458234885126378,
+      "hideValidityDate": false,
+      "closestStore": {
+        "id": "DE-26531",
+        "latitude": 52.5037,
+        "longitude": 13.3439,
+        "street": "Bayreuther Straße",
+        "streetNumber": "3-4",
+        "zip": "10787",
+        "city": "Berlin"
+      }
+    },
+    "externalTracking": {
+      "impression": [],
+      "click": []
+    }
+  },
+  {
+    "placement": "ad_placement__shelf_sort_managed",
+    "adFormat": "ad_format__brochure_card_cover",
+    "contentFormatSource": "destinationsApi",
+    "contentType": "brochure",
+    "content": {
+      "id": 2500566431,
+      "contentId": "c49aefb0-3b46-4465-bb5e-cc8ab5483de7",
+      "title": "LIDL LOHNT SICH",
+      "validFrom": "2025-01-19T23:00:00.000+0000",
+      "validUntil": "2025-01-25T19:00:00.000+0000",
+      "publishedFrom": "2025-01-12T23:00:00.000+0000",
+      "publishedUntil": "2025-01-17T23:00:00.000+0000",
+      "type": "BROCHURE",
+      "brochureImage": "https://content-media.bonial.biz/c49aefb0-3b46-4465-bb5e-cc8ab5483de7/preview.jpg",
+      "pageCount": 58,
+      "publisher": {
+        "id": "DE-1013",
+        "name": "Lidl",
+        "type": "RETAILER"
+      },
+      "contentBadges": [
+        {
+          "name": "new"
+        }
+      ],
+      "distance": 0.9313949483394036,
+      "hideValidityDate": false,
+      "closestStore": {
+        "id": "DE-32993",
+        "latitude": 52.52431,
+        "longitude": 13.3795,
+        "street": "Luisenstraße",
+        "streetNumber": "52",
+        "zip": "10117",
+        "city": "Berlin-Mitte"
+      }
+    },
+    "externalTracking": {
+      "impression": [],
+      "click": []
+    }
+  },
+  {
+    "placement": "ad_placement__shelf_sort_managed",
+    "adFormat": "ad_format__brochure_premium",
+    "contentFormatSource": "destinationsApi",
+    "contentType": "brochurePremium",
+    "content": {
+      "id": 2500562715,
+      "contentId": "af609f14-28b5-40d0-aa11-3bc4c45792ac",
+      "title": "LET'S GO! WSV",
+      "validFrom": "2025-01-09T08:00:00.000+0000",
+      "validUntil": "2025-01-27T07:59:00.000+0000",
+      "publishedFrom": "2025-01-09T08:00:00.000+0000",
+      "publishedUntil": "2025-01-27T07:59:00.000+0000",
+      "type": "BROCHURE",
+      "brochureImage": "https://content-media.bonial.biz/af609f14-28b5-40d0-aa11-3bc4c45792ac/preview.jpg",
+      "pageCount": 16,
+      "publisher": {
+        "id": "DE-1024",
+        "name": "MediaMarkt Saturn",
+        "type": "RETAILER"
+      },
+      "contentBadges": [],
+      "distance": 1.866480632171118,
+      "hideValidityDate": false,
+      "closestStore": {
+        "id": "DE-29148",
+        "latitude": 52.5494,
+        "longitude": 13.378,
+        "street": "Pankstraße",
+        "streetNumber": "32-39",
+        "zip": "13357",
+        "city": "Berlin"
+      }
+    },
+    "externalTracking": {
+      "impression": [],
+      "click": []
+    }
+  },
+  {
+    "placement": "ad_placement__shelf_sort_managed",
+    "adFormat": "ad_format__brochure_card_cover",
+    "contentFormatSource": "destinationsApi",
+    "contentType": "video_ad",
+    "content": {
+      "videoUrl": "https://www.example.com/video.mp4"
+    }
+  }
+]

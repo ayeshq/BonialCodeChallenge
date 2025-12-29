@@ -17,6 +17,7 @@ import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
@@ -55,11 +56,9 @@ class BrochuresViewModelTest {
             val finalState = awaitItem()
             assertFalse(finalState.loadingState.isLoading)
             assertFalse(finalState.brochures.isEmpty())
-            assertTrue {
-                finalState.brochures.count {
-                    it.distance > 5.0
-                } == 0
-            }
+            assertEquals(expected = 0, actual = finalState.brochures.count {
+                it.distance > 5.0
+            })
         }
     }
 

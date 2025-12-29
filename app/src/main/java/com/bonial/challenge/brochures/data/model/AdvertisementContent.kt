@@ -25,3 +25,5 @@ data class SuperBannerCarouselContent(
     @SerializedName("content")
     val content: List<CarouselBannerItemWrapper>
 ): AdvertisementContent()
+
+data object UnknownAdvertisementContent: AdvertisementContent()
